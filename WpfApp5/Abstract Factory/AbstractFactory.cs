@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfApp5.Abstract_Factory
 {
@@ -40,8 +41,6 @@ namespace WpfApp5.Abstract_Factory
         }
     }
 
-
-
     public class VictorianChair : IChair
     {
         public bool hasLegs()
@@ -62,7 +61,6 @@ namespace WpfApp5.Abstract_Factory
 
 
     }
-
 
     public class ArtDecoTable : ITable
     {
@@ -90,8 +88,6 @@ namespace WpfApp5.Abstract_Factory
         }
     }
 
-
-
     public class VictorianTable : ITable
     {
         public bool hasLegs()
@@ -113,7 +109,6 @@ namespace WpfApp5.Abstract_Factory
 
     }
 
-
     public class ArtDecoSofa : ISofa
     {
         public bool CanEnlarge()
@@ -132,8 +127,6 @@ namespace WpfApp5.Abstract_Factory
 
 
     }
-
-
 
     public class VictorianSofa : ISofa
     {
@@ -176,15 +169,13 @@ namespace WpfApp5.Abstract_Factory
 
         public void show()
         {
-            Console.WriteLine("Modern Style ");
+            MessageBox.Show("Ok");
             var chair = createChair();
             var table = createTable();
             var sofa = createSofa();
 
         }
     }
-
-
 
      class VictorianFurnitureFactory : IFurnitureFactory
     {
@@ -208,15 +199,13 @@ namespace WpfApp5.Abstract_Factory
 
         public void show()
         {
-            Console.WriteLine("Victorian Style ");
+            MessageBox.Show("Ok");
             var chair = createChair();
             var table = createTable();
             var sofa = createSofa();
 
         }
     }
-
-
 
     class ArtDecoFurnitureFactory : IFurnitureFactory
     {
@@ -240,7 +229,7 @@ namespace WpfApp5.Abstract_Factory
 
         public void show()
         {
-            Console.WriteLine("ArtDeco Style ");
+            MessageBox.Show("Ok");
             var chair = createChair();
             var table = createTable();
             var sofa = createSofa();
@@ -252,8 +241,9 @@ namespace WpfApp5.Abstract_Factory
     {
         public void Main()
         {
-            ArtDecoFurnitureFactory furniturefactory = new ArtDecoFurnitureFactory();
-            furniturefactory.show();
+            
+            //ArtDecoFurnitureFactory furniturefactory = new ArtDecoFurnitureFactory();
+            //furniturefactory.show();
         }
     }
 }
