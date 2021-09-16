@@ -7,16 +7,22 @@ using System.Windows;
 
 namespace WpfApp5.Abstract_Factory
 {
-    interface IChair
+    public interface IChair
     {
         bool sitOn();
         bool hasLegs();
 
+        string GetImagePath();
 
     }
 
     public class ArtDecoChair : IChair
     {
+        public string GetImagePath()
+        {
+            return "/Images/ArtDecoChair.jpg";
+        }
+
         public bool hasLegs()
         {
             return false;
@@ -26,10 +32,16 @@ namespace WpfApp5.Abstract_Factory
         {
             return true;
         }
+
     }
 
     public class ModernChair : IChair
     {
+        public string GetImagePath()
+        {
+            return "/Images/ModernChair.jpg";
+        }
+
         public bool hasLegs()
         {
             return true;
@@ -43,6 +55,11 @@ namespace WpfApp5.Abstract_Factory
 
     public class VictorianChair : IChair
     {
+        public string GetImagePath()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool hasLegs()
         {
             return true;
@@ -54,7 +71,7 @@ namespace WpfApp5.Abstract_Factory
         }
     }
 
-    interface ITable
+    public interface ITable
     {
         bool sitOn();
         bool hasLegs();
@@ -103,7 +120,7 @@ namespace WpfApp5.Abstract_Factory
 
     }
 
-    interface ISofa
+    public interface ISofa
     {
         bool CanEnlarge();
 
@@ -138,8 +155,10 @@ namespace WpfApp5.Abstract_Factory
 
     }
 
-    interface IFurnitureFactory
+    public interface IFurnitureFactory
     {
+
+        IChair GetImagePath();
         IChair createChair();
         ITable createTable();
         ISofa createSofa();
@@ -147,8 +166,10 @@ namespace WpfApp5.Abstract_Factory
 
     }
 
-     class ModernFurnitureFactory : IFurnitureFactory
+    public class ModernFurnitureFactory : IFurnitureFactory
     {
+
+
         public IChair createChair()
         {
             return new ModernChair();
@@ -167,6 +188,11 @@ namespace WpfApp5.Abstract_Factory
 
         }
 
+        public IChair GetImagePath()
+        {
+            return new ModernChair();
+        }
+
         public void show()
         {
             MessageBox.Show("Ok");
@@ -177,8 +203,10 @@ namespace WpfApp5.Abstract_Factory
         }
     }
 
-     class VictorianFurnitureFactory : IFurnitureFactory
+    public class VictorianFurnitureFactory : IFurnitureFactory
     {
+
+
         public IChair createChair()
         {
             return new VictorianChair();
@@ -197,6 +225,11 @@ namespace WpfApp5.Abstract_Factory
 
         }
 
+        public IChair GetImagePath()
+        {
+            throw new NotImplementedException();
+        }
+
         public void show()
         {
             MessageBox.Show("Ok");
@@ -207,8 +240,12 @@ namespace WpfApp5.Abstract_Factory
         }
     }
 
-    class ArtDecoFurnitureFactory : IFurnitureFactory
+    public class ArtDecoFurnitureFactory : IFurnitureFactory
     {
+
+        public string ImagP { get; set; } = "/Images/ArtDecoChair.jpg";
+
+
         public IChair createChair()
         {
             return new ArtDecoChair();
@@ -227,12 +264,26 @@ namespace WpfApp5.Abstract_Factory
 
         }
 
+        public IChair GetImagePath()
+        {
+            return new ArtDecoChair();
+        }
+
         public void show()
         {
-            MessageBox.Show("Ok");
+
             var chair = createChair();
             var table = createTable();
             var sofa = createSofa();
+
+        }
+
+        public ArtDecoFurnitureFactory()
+        {
+            var ImagePathChair = GetImagePath();
+            ImagP = ImagePathChair.GetImagePath();
+            //MessageBox.Show(ImagePathChair.GetImagePath());
+
 
         }
     }
@@ -241,7 +292,7 @@ namespace WpfApp5.Abstract_Factory
     {
         public void Main()
         {
-            
+
             //ArtDecoFurnitureFactory furniturefactory = new ArtDecoFurnitureFactory();
             //furniturefactory.show();
         }

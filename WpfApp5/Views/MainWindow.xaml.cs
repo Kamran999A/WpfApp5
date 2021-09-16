@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp5.Abstract_Factory;
+using WpfApp5.ViewModels;
 
 namespace WpfApp5
 {
@@ -21,35 +22,13 @@ namespace WpfApp5
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IFurnitureFactory furnitureFactory { get; set; }
+    
         public MainWindow()
         {
-            this.DataContext = this;
             InitializeComponent();
+            this.DataContext = new AppViewModel();
+
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var item = sender as ComboBox;
-            var s = item.SelectedIndex;
-            if (s == 0)
-            {
-                furnitureFactory = new ModernFurnitureFactory();
-                furnitureFactory.show();
-            }
-            
-            else if (s == 1)
-            {
-                furnitureFactory = new VictorianFurnitureFactory();
-                furnitureFactory.show();
-            }
-            
-            else if (s == 2)
-            {
-                furnitureFactory = new ArtDecoFurnitureFactory();
-                furnitureFactory.show();
-            }
-            
-        }
     }
 }

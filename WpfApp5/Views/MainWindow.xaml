@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:WpfApp5"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -11,24 +12,29 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
+        <ComboBox  SelectedIndex="{Binding Index, Mode=TwoWay}"
+                   
+                  Grid.Column="0" Margin="0,0,0,358"   >
 
-        <ComboBox SelectionChanged="ComboBox_SelectionChanged" Grid.Column="0" Margin="0,0,0,358" >
-            <ComboBoxItem FontSize="63" Foreground="Gold" >
+            <ComboBoxItem Selected="{Binding ComboChangeAk}" FontSize="63" Foreground="Gold" >
                 Modern
             </ComboBoxItem>
-            <ComboBoxItem FontSize="63" Foreground="Gold" >
+            <ComboBoxItem Selected="{Binding ComboChangeAk}" FontSize="63" Foreground="Gold" >
                 Victorian
             </ComboBoxItem>
-            <ComboBoxItem FontSize="63" Foreground="Gold" >
+            <ComboBoxItem Selected="{Binding ComboChangeAk}" FontSize="63" Foreground="Gold" >
                 ArtDeco
             </ComboBoxItem>
         </ComboBox>
 
         <Canvas  Grid.Column="1">
             <Label Content="Chair" Foreground="Red" FontSize="20" Canvas.Left="35" Canvas.Top="21" />
-            <Image  ></Image>
+            <Image Source="{Binding img}" Canvas.Left="169" Canvas.Top="68" Stretch="Fill" Width="175"  Height="87"/>
+
             <Label Content="Table" Foreground="Red" FontSize="20" Canvas.Left="35" Canvas.Top="155" />
+            <Image Source="{Binding img}" Canvas.Left="169" Canvas.Top="192" Stretch="Fill" Width="175"  Height="87"/>
             <Label Content="Sofa" Foreground="Red" FontSize="20" Canvas.Left="35" Canvas.Top="274" />
+            <Image Source="{Binding img}" Canvas.Left="169" Canvas.Top="308" Stretch="Fill" Width="175"  Height="87"/>
 
         </Canvas>
 
