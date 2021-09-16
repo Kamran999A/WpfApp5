@@ -9,35 +9,36 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using WpfApp5.Abstract_Factory;
 using WpfApp5.Commands;
+using static WpfApp5.Abstract_Factory.VictorianSofa;
 
 namespace WpfApp5.ViewModels
 {
     public class AppViewModel : BaseViewModel
     {
-        public int Index { get; set; } 
-
-        public string img { get; set; }
+        public int Index { get; set; }
+        public ComboBox Affa { get; set; }
+        public string ImageChair { get; set; }
+        public string ImageTable { get; set; }
+        public string ImageSofa { get; set; }
         private IFurnitureFactory furnitureFactory { get; set; }
 
         public AppViewModel()
         {
-            for (int i = 0; i < Index + 1; i++)
-            {
             ComboChangeAk();
-
-            }
         }
-
         public void ComboChangeAk()
         {
-          
+            //var item = sender as ComboBox;
             int  s = Index;
+
             if (s == 0)
             {
                 furnitureFactory = new ModernFurnitureFactory();
-                // this.DataContext = this;
-                img = furnitureFactory.GetImagePath().GetImagePath();
-                furnitureFactory.show();
+               // this.DataContext = this;
+                ImageChair = furnitureFactory.createChair().getImageChair();
+                ImageTable = furnitureFactory.createTable().getImageTable();
+                ImageSofa = furnitureFactory.createSofa().GetImageSofa();
+
 
 
             }
@@ -45,20 +46,22 @@ namespace WpfApp5.ViewModels
             else if (s == 1)
             {
                 furnitureFactory = new VictorianFurnitureFactory();
-                img = furnitureFactory.GetImagePath().GetImagePath();
-                furnitureFactory.show();
-               // this.DataContext = this;
+                ImageChair = furnitureFactory.createChair().getImageChair();
+                ImageTable = furnitureFactory.createTable().getImageTable();
+                ImageSofa = furnitureFactory.createSofa().GetImageSofa();
+                // this.DataContext = this;
 
             }
 
             else if (s == 2)
             {
                 furnitureFactory = new ArtDecoFurnitureFactory();
-                img = furnitureFactory.GetImagePath().GetImagePath();
-                MessageBox.Show(img);
-                furnitureFactory.show();
+                ImageChair = furnitureFactory.createChair().getImageChair();
+                ImageTable = furnitureFactory.createTable().getImageTable();
+                ImageSofa = furnitureFactory.createSofa().GetImageSofa();
                 // furnitureFactory.GetImagePath().GetImagePath();
             }
+
 
         }
     }

@@ -25,10 +25,15 @@ namespace WpfApp5
     
         public MainWindow()
         {
+            this.DataContext = new AppViewModel();  
             InitializeComponent();
-            this.DataContext = new AppViewModel();
 
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.DataContext = new AppViewModel();  
+            
+        }
     }
 }

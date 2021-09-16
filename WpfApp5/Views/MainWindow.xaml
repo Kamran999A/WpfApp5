@@ -12,29 +12,32 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <ComboBox  SelectedIndex="{Binding Index, Mode=TwoWay}"
-                   
-                  Grid.Column="0" Margin="0,0,0,358"   >
-
-            <ComboBoxItem Selected="{Binding ComboChangeAk}" FontSize="63" Foreground="Gold" >
+        <ComboBox  SelectedIndex="{Binding Index, Mode=OneWayToSource}"
+                  Grid.Column="0" Margin="0,0,0,358"  SelectionChanged="ComboBox_SelectionChanged"
+                   >
+          
+            <ComboBoxItem  FontSize="63" Foreground="Gold" >
                 Modern
             </ComboBoxItem>
-            <ComboBoxItem Selected="{Binding ComboChangeAk}" FontSize="63" Foreground="Gold" >
+            <ComboBoxItem FontSize="63" Foreground="Gold" >
                 Victorian
             </ComboBoxItem>
-            <ComboBoxItem Selected="{Binding ComboChangeAk}" FontSize="63" Foreground="Gold" >
+            <ComboBoxItem FontSize="63" Foreground="Gold" >
                 ArtDeco
             </ComboBoxItem>
         </ComboBox>
 
         <Canvas  Grid.Column="1">
             <Label Content="Chair" Foreground="Red" FontSize="20" Canvas.Left="35" Canvas.Top="21" />
-            <Image Source="{Binding img}" Canvas.Left="169" Canvas.Top="68" Stretch="Fill" Width="175"  Height="87"/>
+            <Image Source="{Binding ImageChair}" Canvas.Left="169" Canvas.Top="68" 
+                   Stretch="Fill" Width="175"  Height="87"/>
 
             <Label Content="Table" Foreground="Red" FontSize="20" Canvas.Left="35" Canvas.Top="155" />
-            <Image Source="{Binding img}" Canvas.Left="169" Canvas.Top="192" Stretch="Fill" Width="175"  Height="87"/>
+            <Image Source="{Binding ImageTable}" Canvas.Left="169" Canvas.Top="192" 
+                   Stretch="Fill" Width="175"  Height="87"/>
             <Label Content="Sofa" Foreground="Red" FontSize="20" Canvas.Left="35" Canvas.Top="274" />
-            <Image Source="{Binding img}" Canvas.Left="169" Canvas.Top="308" Stretch="Fill" Width="175"  Height="87"/>
+            <Image Source="{Binding ImageSofa}" Canvas.Left="169" Canvas.Top="308"
+                   Stretch="Fill" Width="175"  Height="87"/>
 
         </Canvas>
 
