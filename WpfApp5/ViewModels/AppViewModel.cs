@@ -29,9 +29,8 @@ namespace WpfApp5.ViewModels
         public void ComboChangeAk()
         {
             //var item = sender as ComboBox;
-            int  s = Index;
-
-            if (s == 0)
+            MessageBox.Show($"{Index}");
+            if (Index == 0)
             {
                 furnitureFactory = new ModernFurnitureFactory();
                // this.DataContext = this;
@@ -43,7 +42,7 @@ namespace WpfApp5.ViewModels
 
             }
 
-            else if (s == 1)
+            else if (Index == 1)
             {
                 furnitureFactory = new VictorianFurnitureFactory();
                 ImageChair = furnitureFactory.createChair().getImageChair();
@@ -53,7 +52,7 @@ namespace WpfApp5.ViewModels
 
             }
 
-            else if (s == 2)
+            else if (Index == 2)
             {
                 furnitureFactory = new ArtDecoFurnitureFactory();
                 ImageChair = furnitureFactory.createChair().getImageChair();
