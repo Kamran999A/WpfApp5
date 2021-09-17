@@ -6,14 +6,18 @@
           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:WpfApp5" xmlns:ie="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+         WindowStyle="None" AllowsTransparency="True"
+        Background="Transparent"
+        >
+    <Border Background="DeepSkyBlue" CornerRadius="50"> 
+    <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <ComboBox Name="Comm" 
-                  Grid.Column="0" Margin="0,0,0,358"
+                  Grid.Column="0" Margin="10,26,0,348"
                    >
 
             <ie:Interaction.Triggers>
@@ -34,19 +38,20 @@
 
         <Canvas  Grid.Column="1">
             <Label Content="Chair" Foreground="Red" FontSize="20" Canvas.Left="35" Canvas.Top="21" />
-            <Image Source="{Binding ImageChair}" Canvas.Left="169" Canvas.Top="68" 
-                   Stretch="Fill" Width="175"  Height="87"/>
+            <Image Source="{Binding ImageChair}" Canvas.Left="169" Canvas.Top="21" 
+                   Stretch="Fill" Width="260"  Height="134"/>
 
             <Label Content="Table" Foreground="Red" FontSize="20" Canvas.Left="35" Canvas.Top="155" />
-            <Image Source="{Binding ImageTable}" Canvas.Left="169" Canvas.Top="192" 
-                   Stretch="Fill" Width="175"  Height="87"/>
-            
+            <Image Source="{Binding ImageTable}" Canvas.Left="169" Canvas.Top="160" 
+                   Stretch="Fill" Width="260"  Height="119"/>
+
             <Label Content="Sofa"  Foreground="Red" FontSize="20" Canvas.Left="35" Canvas.Top="274" />
-            <Image Source="{Binding ImageSofa}" Canvas.Left="169" Canvas.Top="308"
-                   Stretch="Fill" Width="175"  Height="87"/>
+            <Image Source="{Binding ImageSofa}" Canvas.Left="169" Canvas.Top="284"
+                   Stretch="Fill" Width="260"  Height="111"/>
 
         </Canvas>
 
 
     </Grid>
+    </Border>
 </Window>
