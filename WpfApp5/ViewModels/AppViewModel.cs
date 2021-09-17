@@ -15,53 +15,67 @@ namespace WpfApp5.ViewModels
 {
     public class AppViewModel : BaseViewModel
     {
-        public int Index { get; set; }
+        public string SelectedItem { get; set; }
         public ComboBox Affa { get; set; }
-        public string ImageChair { get; set; }
-        public string ImageTable { get; set; }
-        public string ImageSofa { get; set; }
-        private IFurnitureFactory furnitureFactory { get; set; }
+        private string imageChair;
 
+        public string ImageChair
+        {
+            get { return imageChair; }
+            set { imageChair = value; OnPropertyChanged(); }
+        }
+        private string imageTable;
+
+        public string ImageTable
+        {
+            get { return imageTable; }
+            set { imageTable = value; OnPropertyChanged(); }
+        }
+        private string imageSofa;
+
+        public string ImageSofa
+        {
+            get { return imageSofa; }
+            set { imageSofa = value; OnPropertyChanged(); }
+        }
+
+        private IFurnitureFactory furnitureFactory { get; set; }
+        public RelayCommand SelectedChanged { get; set; }
         public AppViewModel()
         {
-            ComboChangeAk();
+            SelectedChanged = new RelayCommand((sender) =>
+              {
+                  var item = sender as ComboBoxItem;
+                  string data = item.Content.ToString();
+                  ComboChangeAk(data);
+              });
         }
-        public void ComboChangeAk()
+        public void ComboChangeAk(string data2)
         {
-            //var item = sender as ComboBox;
-            MessageBox.Show($"{Index}");
-            if (Index == 0)
+            if (data2 == "Modern")
             {
                 furnitureFactory = new ModernFurnitureFactory();
-               // this.DataContext = this;
                 ImageChair = furnitureFactory.createChair().getImageChair();
                 ImageTable = furnitureFactory.createTable().getImageTable();
                 ImageSofa = furnitureFactory.createSofa().GetImageSofa();
-
-
-
             }
 
-            else if (Index == 1)
+            else if (data2 == "Victorian")
             {
                 furnitureFactory = new VictorianFurnitureFactory();
                 ImageChair = furnitureFactory.createChair().getImageChair();
                 ImageTable = furnitureFactory.createTable().getImageTable();
                 ImageSofa = furnitureFactory.createSofa().GetImageSofa();
-                // this.DataContext = this;
 
             }
 
-            else if (Index == 2)
+            else if (data2 == "ArtDeco")
             {
                 furnitureFactory = new ArtDecoFurnitureFactory();
                 ImageChair = furnitureFactory.createChair().getImageChair();
                 ImageTable = furnitureFactory.createTable().getImageTable();
                 ImageSofa = furnitureFactory.createSofa().GetImageSofa();
-                // furnitureFactory.GetImagePath().GetImagePath();
             }
-
-
         }
     }
 

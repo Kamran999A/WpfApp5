@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
           xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-        xmlns:local="clr-namespace:WpfApp5"
+        xmlns:local="clr-namespace:WpfApp5" xmlns:ie="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -12,10 +12,15 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <ComboBox Name="Comm" SelectedIndex="{Binding Path=Index, Mode=TwoWay}"
-                  Grid.Column="0" Margin="0,0,0,358"  SelectionChanged="ComboBox_SelectionChanged"
+        <ComboBox Name="Comm" 
+                  Grid.Column="0" Margin="0,0,0,358"
                    >
-          
+
+            <ie:Interaction.Triggers>
+                <ie:EventTrigger EventName="SelectionChanged">
+                    <ie:InvokeCommandAction Command="{Binding SelectedChanged}"  CommandParameter="{Binding ElementName=Comm, Path=SelectedItem}"/>
+                </ie:EventTrigger>
+            </ie:Interaction.Triggers>
             <ComboBoxItem  FontSize="63" Foreground="Gold" >
                 Modern
             </ComboBoxItem>

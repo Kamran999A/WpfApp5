@@ -34,7 +34,7 @@ namespace WpfApp5.Abstract_Factory
 
         public string getImageChair()
         {
-            return "/Images/ArtDecoChair.jpg";
+            return "../Images/ArtDecoChair.jpg";
         }
 
 
@@ -65,7 +65,7 @@ namespace WpfApp5.Abstract_Factory
 
         public string getImageChair()
         {
-            return "/Images/ModernChair.jpg";
+            return "../Images/ModernChair.jpg";
         }
 
 
@@ -95,7 +95,7 @@ namespace WpfApp5.Abstract_Factory
 
         public string getImageChair()
         {
-            return "/Images/VictorianChair.jpg";
+            return "../Images/VictorianChair.jpg";
         }
 
 
@@ -125,7 +125,7 @@ namespace WpfApp5.Abstract_Factory
     {
         public string getImageTable()
         {
-            return "/Images/ArtDecoTable.jpg";
+            return "../Images/ArtDecoTable.jpg";
         }
 
 
@@ -153,7 +153,7 @@ namespace WpfApp5.Abstract_Factory
     {
         public string getImageTable()
         {
-            return "/Images/ModernTable.jpg";
+            return "../Images/ModernTable.jpg";
         }
 
 
@@ -178,7 +178,7 @@ namespace WpfApp5.Abstract_Factory
     {
         public string getImageTable()
         {
-            return "/Images/VictorianTable.jpg";
+            return "../Images/VictorianTable.jpg";
         }
 
 
@@ -220,7 +220,7 @@ namespace WpfApp5.Abstract_Factory
 
         public string GetImageSofa()
         {
-            return "/Images/ArtDecoSofa.jpg";
+            return "../Images/ArtDecoSofa.jpg";
         }
     }
 
@@ -238,7 +238,7 @@ namespace WpfApp5.Abstract_Factory
 
         public string GetImageSofa()
         {
-            return "/Images/ModernSofa.jpg";
+            return "../Images/ModernSofa.jpg";
         }
     }
 
@@ -256,7 +256,7 @@ namespace WpfApp5.Abstract_Factory
 
         public string GetImageSofa()
         {
-            return "/Images/VictorianSofa.jpg";
+            return "../Images/VictorianSofa.jpg";
         }
 
 
